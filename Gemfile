@@ -6,7 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+gem 'mysql'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -36,3 +36,25 @@ gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
+
+#自動テスト関連
+group :test, :development do
+  gem 'rspec-rails','~>2.0'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'spork','0.9.2'
+  gem 'rails_best_practices', :require => false
+  gem 'yard', :require => false
+
+  gem "capybara"
+  gem "factory_girl_rails", :require => false
+  gem "email_spec"
+  gem "capybara"
+end
+
+#認証関連
+gem "devise"
+
+#環境変数設定
+gem "figaro"
+
