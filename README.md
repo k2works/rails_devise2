@@ -170,7 +170,7 @@ Railsアプリでユーザー認証機能を組み込む。
 
 3. ユーザー登録画面の作成
 
- `$ mkdir app/views/devise/registrations/`
+ `$ mkdir -p app/views/devise/registrations/`
 
  `$ vi app/views/devise/registrations/new.html.erb`
 
