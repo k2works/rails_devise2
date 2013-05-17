@@ -53,8 +53,10 @@ group :test, :development do
 end
 
 #認証関連
-gem "devise"
+gem 'devise'
 
 #環境変数設定
-gem "figaro"
+gem 'figaro'
 
+#他言語対応
+gem 'i18n_generators'

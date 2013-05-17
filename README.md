@@ -222,9 +222,53 @@ Railsアプリでユーザー認証機能を組み込む。
 
 5. リダイレクト
 
- `$ vi app/controllers/users_controller.rb`
+`$ vi app/controllers/users_controller.rb`
+
+#### 日本語対応
+1. 認証関連ページを日本語化する
+ 日本語ファイルをダウンロードする
+
+ https://gist.github.com/kawamoto/4729292
+
+ config/locales/dvise.ja.ymlとして保存する
+
+ config/application.rbを編集する
+
+ `config.i18n.default_locale = :ja`
+
+2. Railsアプリを日本語化する
+
+ `$ echo "gem 'i18n_generators'" >> Gemfile`
+
+ `$ bundle`
+
+ `$ rails g i18n ja`
+
+ 以下のファイルを翻訳する
+
+`$ vi config/locales/translation_ja.yml`
+ `$ vi config/locales/ja.yml`
+
+ viewの表記方法は
+ コントローラ名.human_attribute_name 'モデルの属性名'
+  `<%= f.label Book.human_attribute_name 'title' %>`
+
+以下のページを翻訳する
+
+`$ vi app/views/layouts/application.html.erb`
+
+`$ vi app/views/layouts/_messages.html.erb`
+
+`$ vi app/views/layouts/_navigation.html.erb`
+
+
+
+
+2. Cucumber日本語化
 
 ### 参照
 [RailsApps Tutorials](http://railsapps.github.io/tutorial-rails-devise-rspec-cucumber.html)
 
 [RoR チュートリアル「Rails Tutorial for Devise with RSpec and Cucumber」をやってみる](http://d.hatena.ne.jp/next49/20120824/p2)
+
+[i18n_generators を使ったロケールファイルの生成](http://qiita.com/items/e33bd512550aa2219da8)
