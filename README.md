@@ -70,7 +70,7 @@ Railsアプリでユーザー認証機能を組み込む。
         # required if the Devise Confirmable module is used
         # confirmed_at Time.now
       end
-      end
+    end
       
 6. Devise Test Helperを追加する。
 
@@ -104,10 +104,13 @@ Railsアプリでユーザー認証機能を組み込む。
 
 1. Gemの追加
 
-    gem "cucumber-rails"
-    gem "capybara"
-    gem "database_cleaner"    
-    gem "email_spec"
+ `gem "cucumber-rails"`
+  
+ `gem "capybara"`
+   
+ `gem "database_cleaner"`
+   
+ `gem "email_spec"`
 
  `$ bundle`
 
