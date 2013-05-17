@@ -38,48 +38,15 @@ Railsアプリでユーザー認証機能を組み込む。
   
  `$ sepc/spec_helper.rb`
 
-  `config.before(:suite) do`
-  
-    `DatabaseCleaner.strategy = :truncation`
-    
-  `end`
-  
-  `config.before(:each) do`
-    
-    `DatabaseCleaner.start`
-    
-  `end`
-    
-  `config.after(:each) do`
-  
-    `DatabaseCleaner.clean`
-    
-  `end`
-
 5. FactoryGirlにテストオブジェクトを追加する。
 
  `$ mkdir spec/support`
 
  `$ vi spec/support/devise.rb`
-
-    FactoryGirl.define do
-      factory :user do
-        name 'Test User'
-        email 'example@example.com'
-        password 'changeme'
-        password_confirmation 'changeme'
-        # required if the Devise Confirmable module is used
-        # confirmed_at Time.now
-      end
-    end
       
 6. Devise Test Helperを追加する。
 
  `$ vi spec/support/devise.rb`
-
-    RSpec.configure do |config|
-      config.include Devise::TestHelpers, :type => :controller
-    end
 
 7. Email Specの設定
 
@@ -121,19 +88,11 @@ Railsアプリでユーザー認証機能を組み込む。
 
  features/support/env.rb
 
-    begin
-      DatabaseCleaner.strategy = :transaction
-      rescue NameError
-      raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
-      end
-
 3. Email Specの設定
 
  `$ vi features/support/email_spec.rb`
 
- `require 'email_spec/cucumber`
-
- `rails g email_spec:steps`
+ `$ rails g email_spec:steps`
 
 4. Cucumberの実行
 
