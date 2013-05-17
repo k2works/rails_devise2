@@ -14,10 +14,10 @@ Railsアプリでユーザー認証機能を組み込む。
 #### RSpecの設定
 1. Gemfileを編集する。
 
-    gem "rspec-rails"
-    gem "factory_girl_rails"
-    gem "database_cleaner"    
-    gem "email_spec"
+  `gem "rspec-rails"`
+  `gem "factory_girl_rails"`
+  `gem "database_cleaner"`
+  `gem "email_spec"`
     
 2. Gemをインストールする。
 
