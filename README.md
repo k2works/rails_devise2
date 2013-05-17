@@ -57,6 +57,7 @@ Railsアプリでユーザー認証機能を組み込む。
   `end`
 
 5. FactoryGirlにテストオブジェクトを追加する。
+
  `$ mkdir spec/support`
 
  `$ vi spec/support/devise.rb`
