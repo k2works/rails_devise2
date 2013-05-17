@@ -47,7 +47,7 @@ group :test, :development do
   gem 'yard', :require => false
 
   gem "capybara"
-  gem "factory_girl_rails", :require => false
+  gem "factory_girl_rails"
   gem "email_spec"
   gem "capybara"
 end
