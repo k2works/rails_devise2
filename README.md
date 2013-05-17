@@ -35,17 +35,26 @@ Railsアプリでユーザー認証機能を組み込む。
  `$ rails g rspec:install`
 
 4. DatabaseCleanerの設定をする。
-  sepc/spec_helper.rb
+  
+ `$ sepc/spec_helper.rb`
 
-    config.before(:suite) do
-      DatabaseCleaner.strategy = :truncation
-    end
-    config.before(:each) do
-      DatabaseCleaner.start
-    end
-    config.after(:each) do
-      DatabaseCleaner.clean
-    end
+  `config.before(:suite) do`
+  
+    `DatabaseCleaner.strategy = :truncation`
+    
+  `end`
+  
+  `config.before(:each) do`
+    
+    `DatabaseCleaner.start`
+    
+  `end`
+    
+  `config.after(:each) do`
+  
+    `DatabaseCleaner.clean`
+    
+  `end`
 
 5. FactoryGirlにテストオブジェクトを追加する。
  `$ mkdir spec/support`
