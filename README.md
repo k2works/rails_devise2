@@ -253,6 +253,11 @@ Railsアプリでユーザー認証機能を組み込む。
  コントローラ名.human_attribute_name 'モデルの属性名'
   `<%= f.label Book.human_attribute_name 'title' %>`
 
+DeviseのViewを編集できるようにする
+既に作成したViewは上書きしない
+
+`$ rails g devise:views`
+
 以下のページを翻訳する
 
 `$ vi app/views/layouts/application.html.erb`
@@ -261,8 +266,13 @@ Railsアプリでユーザー認証機能を組み込む。
 
 `$ vi app/views/layouts/_navigation.html.erb`
 
+`$ vi app/views/devise/sessions/new.html.erb`
 
+`$ vi app/views/devise/shared/_links.erb`
 
+`$ vi app/views/devise/registrations/edit.html.erb`
+
+`$ vi app/views/devise/registrations/new.html.erb`
 
 2. Cucumber日本語化
 
