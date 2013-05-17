@@ -112,7 +112,7 @@ Railsアプリでユーザー認証機能を組み込む。
 
 1. ナビゲーションリンクの追加
 
- `$ vi app/views/layout/_navigation.html.erb`
+ `$ vi app/views/layouts/_navigation.html.erb`
 
 2. フラッシュメッセージの追加
 
