@@ -291,7 +291,15 @@ Railsアプリでユーザー認証機能を組み込む。
 
  `$ vi features/users/user_edit.feature`
 
-3. 辞書ファイルを整理する
+3. RSpec日本語化
+
+ `$ vi spec/models/user_spec.rb`
+
+ `$ vi spec/controllers/users_controller_spec.rb`
+
+ `$ vi spec/controllers/home_controller_spec.rb`
+
+4. 辞書ファイルを整理する
 
 モデル,ビュー,デフォルトに分割する
 
