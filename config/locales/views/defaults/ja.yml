@@ -1,0 +1,10 @@
+ja:
+  layouts:
+    application:
+      title:    "Devise2"
+    navigation:
+      title:    "Devise2"    
+      Logout:   "ログアウト"
+      Login:    "ログイン"
+      Edit_account: "登録情報編集"
+      Sign_up:       "登録"

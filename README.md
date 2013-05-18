@@ -291,6 +291,138 @@ Railsアプリでユーザー認証機能を組み込む。
 
 3. 辞書ファイルを整理する
 
+モデル,ビュー,デフォルトに分割する
+
+`$ mkdir config/locales/defaults`
+
+`$ mkdir config/locales/models`
+
+`$ mkdir config/locales/views`
+
+デフォルトの作成
+
+`$ cp config/locales/en.yml config/locales/defaults/`
+
+`$ cp config/locales/ja.yml config/locales/defaults/`
+
+モデルの作成
+
+`$ mkdir config/locales/models/defaults`
+
+`$ mkdir config/locales/models/user`
+
+`$ cp config/locales/en.yml config/locales/models/defaults/`
+
+`$ cp config/locales/ja.yml config/locales/models/defaults/`
+
+`$ cp config/locales/en.yml config/locales/models/user/`
+
+`$ cp config/locales/ja.yml config/locales/models/user/`
+
+ビューの作成
+
+ `$ mkdir config/locales/views/defaults`
+
+ `$ mkdir config/locales/views/devise`
+
+ `$ mkdir config/locales/views/devise/confirmations`
+
+ `$ mkdir config/locales/views/devise/passwords`
+
+ `$ mkdir config/locales/views/devise/sessions`
+
+ `$ mkdir config/locales/views/devise/registrations`
+
+ `$ mkdir config/locales/views/devise/mailer`
+
+`$ mkdir config/locales/views/devise/unlocks`
+
+ `$ mkdir config/locales/views/devise/shared`
+
+ `$ cp config/locales/en.yml config/locales/views/defaults/`
+
+ `$ cp config/locales/ja.yml config/locales/views/defaults/`
+
+ `$ cp config/locales/en.yml config/locales/views/devise/confirmations/`
+
+ `$ cp config/locales/ja.yml config/locales/views/devise/confirmations/`
+
+ `$ cp config/locales/en.yml config/locales/views/devise/passwords/`
+
+ `$ cp config/locales/ja.yml config/locales/views/devise/passwords/`
+
+ `$ cp config/locales/en.yml config/locales/views/devise/sessions/`
+
+ `$ cp config/locales/ja.yml config/locales/views/devise/sessions/`
+
+ `$ cp config/locales/en.yml config/locales/views/devise/registrations/`
+
+ `$ cp config/locales/ja.yml config/locales/views/devise/registrations/`
+
+ `$ cp config/locales/en.yml config/locales/views/devise/mailer/`
+
+ `$ cp config/locales/ja.yml config/locales/views/devise/mailer/`
+
+ `$ cp config/locales/en.yml config/locales/views/devise/unlocks/`
+
+ `$ cp config/locales/ja.yml config/locales/views/devise/unlocks/`
+
+ `$ cp config/locales/en.yml config/locales/views/devise/shared/`
+
+ `$ cp config/locales/ja.yml config/locales/views/devise/shared/`
+
+ `$ mkdir config/locales/views/home`
+
+ `$ cp config/locales/en.yml config/locales/views/home/`
+
+ `$ cp config/locales/ja.yml config/locales/views/home/`
+
+ `$ mkdir config/locales/views/users`
+
+ `$ cp config/locales/en.yml config/locales/views/users/`
+
+ `$ cp config/locales/ja.yml config/locales/views/users/`
+
+ファイルの編集
+
+ `$ rm config/locales/ja.yml`
+
+ `$ rm config/locales/en.yml`
+
+ `$ vi config/locales/defaults/ja.yml`
+
+ `$ vi config/locales/models/defaults/ja.yml`
+
+ `$ rm config/locales/models/user/ja.yml`
+
+ `$ mv config/locales/translation`
+
+ `$ mv config/locales/models/user/translation_ja.yml config/locales/models/user/ja.yml`
+
+ `$ vi config/locales/views/defaults/ja.yml`
+
+ `$ vi config/locales/views/users/ja.yml`
+
+ `$ vi config/locales/views/home/ja.yml`
+
+ `$ vi config/locales/views/devise/confirmations/ja.yml`
+
+ `$ vi config/locales/views/devise/passwords/ja.yml`
+
+ `$ vi config/locales/views/devise/sessions/ja.yml`
+
+ `$ vi config/locales/views/devise/unlocks/ja.yml`
+
+ `$ vi config/locales/views/devise/mailer/ja.yml`
+
+ `$ vi config/locales/views/devise/registrations/ja.yml`
+
+ `$ vi config/locales/views/devise/shared/ja.yml`
+
+ `$ vi config/application.rb`
+
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
 ### 参照
 [RailsApps Tutorials](http://railsapps.github.io/tutorial-rails-devise-rspec-cucumber.html)
 

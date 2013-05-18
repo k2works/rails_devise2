@@ -1,0 +1,14 @@
+ja:
+  devise:
+    registrations:
+      new:
+        title:  "登録"
+        Sign_up:  "登録"
+      edit:
+        title:  "登録情報編集"
+        leave_blank_if_you_dont_want_to_change_it:  "変更したくない場合は空白のままにしてください"
+        we_need_your_current_password_to_confirm_your_changes:  "変更を確定するために新しいパスワードが必要です"
+        Update:  "更新"
+        Cancel_my_account: "登録情報を削除する"
+        Are_you_sure?: "本当によろしいですか？"
+        Back: "戻る"

@@ -1,0 +1,10 @@
+ja:
+  devise:
+    shared:
+      links:
+       Sign_in: "ログイン"
+       Sign_up: "登録"       
+       Forgot_yor_password?: "パスワードを忘れた"
+       Didnt_receive_confirmation_instructions?: "確定の連絡が来ない"
+       Didnt_receive_unlock_instructions?: "解除の連絡が来ない"
+       Sign_in_with: "でログイン"  

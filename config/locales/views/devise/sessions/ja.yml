@@ -1,0 +1,7 @@
+ja:
+  devise:
+    sessions:
+      new:
+        title:  "ログイン"
+        Sign_in: "ログイン"
+        Sign_up: "登録"
