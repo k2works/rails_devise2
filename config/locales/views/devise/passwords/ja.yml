@@ -1,3 +1,7 @@
 ja:
   devise:
     passwords:
+      new:
+        title: パスワードを忘れた
+        Send_me_reset_password_instructions: パスワードリセット方法を送信する
+      

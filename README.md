@@ -275,6 +275,8 @@ Railsアプリでユーザー認証機能を組み込む。
 
  `$ vi app/views/devise/registrations/new.html.erb`
 
+ `$ vi app/views/devise/passwords/new.html.erb`
+
 2. Cucumber日本語化
 
  `$ vi devise2/features/step_definitions/user_steps.rb`
