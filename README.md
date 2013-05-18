@@ -246,35 +246,50 @@ Railsアプリでユーザー認証機能を組み込む。
 
  以下のファイルを翻訳する
 
-`$ vi config/locales/translation_ja.yml`
+ `$ vi config/locales/translation_ja.yml`
+ 
  `$ vi config/locales/ja.yml`
 
  viewの表記方法は
  コントローラ名.human_attribute_name 'モデルの属性名'
   `<%= f.label Book.human_attribute_name 'title' %>`
 
-DeviseのViewを編集できるようにする
-既に作成したViewは上書きしない
+ DeviseのViewを編集できるようにする
+ 既に作成したViewは上書きしない
 
-`$ rails g devise:views`
+ `$ rails g devise:views`
 
-以下のページを翻訳する
+ 以下のページを翻訳する
 
-`$ vi app/views/layouts/application.html.erb`
+ `$ vi app/views/layouts/application.html.erb`
 
-`$ vi app/views/layouts/_messages.html.erb`
+ `$ vi app/views/layouts/_messages.html.erb`
 
-`$ vi app/views/layouts/_navigation.html.erb`
+ `$ vi app/views/layouts/_navigation.html.erb`
 
-`$ vi app/views/devise/sessions/new.html.erb`
+ `$ vi app/views/devise/sessions/new.html.erb`
 
-`$ vi app/views/devise/shared/_links.erb`
+ `$ vi app/views/devise/shared/_links.erb`
 
-`$ vi app/views/devise/registrations/edit.html.erb`
+ `$ vi app/views/devise/registrations/edit.html.erb`
 
-`$ vi app/views/devise/registrations/new.html.erb`
+ `$ vi app/views/devise/registrations/new.html.erb`
 
 2. Cucumber日本語化
+
+ `$ vi devise2/features/step_definitions/user_steps.rb`
+
+ `$ vi features/users/sign_in.feature`
+
+ `$ vi features/users/sign_out.feature`
+
+ `$ vi features/users/sign_up.feature`
+
+ `$ vi features/users/user_show.feature`
+
+ `$ vi features/users/user_edit.feature`
+
+3. 辞書ファイルを整理する
 
 ### 参照
 [RailsApps Tutorials](http://railsapps.github.io/tutorial-rails-devise-rspec-cucumber.html)
@@ -282,3 +297,5 @@ DeviseのViewを編集できるようにする
 [RoR チュートリアル「Rails Tutorial for Devise with RSpec and Cucumber」をやってみる](http://d.hatena.ne.jp/next49/20120824/p2)
 
 [i18n_generators を使ったロケールファイルの生成](http://qiita.com/items/e33bd512550aa2219da8)
+
+[RailsのI18n APIの使い方の基本と辞書ファイルの整理方針: Modelごと、Viewごとに分けて管理する](http://memo.yomukaku.net/entries/LXvSUpT)

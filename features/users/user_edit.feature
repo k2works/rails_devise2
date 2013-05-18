@@ -1,9 +1,11 @@
-Feature: Edit User
-  As a registered user of the website
-  I want to edit my user profile
-  so I can change my username
+# language:ja
 
-    Scenario: I sign in and edit my account
-      Given I am logged in
-      When I edit my account details
-      Then I should see an account edited message
+機能: 登録情報編集
+  サイトに登録されている状態で
+  登録情報を編集したい
+  そうすれば名前を変更できる
+
+    シナリオ: ログインして登録情報を編集する
+      前提 ログインしている
+      もし 登録情報を編集した
+      ならば 登録情報編集完了メッセージが表示される

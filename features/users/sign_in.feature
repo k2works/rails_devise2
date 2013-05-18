@@ -1,34 +1,36 @@
-Feature: Sign in
-  In order to get access to protected sections of the site
-  A user
-  Should be able to sign in
+# language:ja
 
-    Scenario: User is not signed up
-      Given I do not exist as a user
-      When I sign in with valid credentials
-      Then I see an invalid login message
-        And I should be signed out
+機能: ログイン
+  保護されたサイトにアクセスするため
+  ユーザーは
+  ログインできなければならない
 
-    Scenario: User signs in successfully
-      Given I exist as a user
-        And I am not logged in
-      When I sign in with valid credentials
-      Then I see a successful sign in message
-      When I return to the site
-      Then I should be signed in
+    シナリオ: ログインできない
+      前提 存在しないユーザー
+      もし 有効な資格でログインした
+      ならば エラーメッセージが表示される
+        かつ ログインできない
 
-    Scenario: User enters wrong email
-      Given I exist as a user
-      And I am not logged in
-      When I sign in with a wrong email
-      Then I see an invalid login message
-      And I should be signed out
+    シナリオ: ログインできる
+      前提 存在するユーザー
+        かつ ログインしていない
+      もし 有効な資格でログインした
+      ならば ログインメッセージが表示される
+      もし トップページに戻った
+      ならば ログインできる
+
+    シナリオ: 間違ったメールアドレスを入力
+      前提 存在するユーザー
+      かつ ログインしていない
+      もし 間違ったメールアドレスでログイン
+      ならば エラーメッセージが表示される
+      かつ ログインできない
       
-    Scenario: User enters wrong password
-      Given I exist as a user
-      And I am not logged in
-      When I sign in with a wrong password
-      Then I see an invalid login message
-      And I should be signed out
+    シナリオ: 間違ったパスワードを入力
+      前提 存在するユーザー
+      かつ ログインしていない
+      もし 間違ったパスワードでログイン
+      ならば エラーメッセージが表示される
+      かつ ログインできない
 
       

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ### UTILITY METHODS ###
 
 def create_visitor
@@ -34,7 +35,7 @@ def sign_up
   fill_in "user_email", :with => @visitor[:email]
   fill_in "user_password", :with => @visitor[:password]
   fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
-  click_button "Sign up"
+  click_button "登録"
   find_user
 end
 
@@ -42,150 +43,142 @@ def sign_in
   visit '/users/sign_in'
   fill_in "user_email", :with => @visitor[:email]
   fill_in "user_password", :with => @visitor[:password]
-  click_button "Sign in"
+  click_button "ログイン"
 end
 
 ### GIVEN ###
-Given /^I am not logged in$/ do
+前提(/^ログインしていない$/) do
   visit '/users/sign_out'
 end
 
-Given /^I am logged in$/ do
+前提(/^ログインしている$/) do
   create_user
   sign_in
 end
 
-Given /^I exist as a user$/ do
+前提(/^存在するユーザー$/) do
   create_user
 end
 
-Given /^I do not exist as a user$/ do
+前提(/^存在しないユーザー$/) do
   create_visitor
   delete_user
 end
 
-Given /^I exist as an unconfirmed user$/ do
-  create_unconfirmed_user
-end
-
 ### WHEN ###
-When /^I sign in with valid credentials$/ do
+もし(/^有効な資格でログインした$/) do
   create_visitor
   sign_in
 end
 
-When /^I sign out$/ do
+もし(/^ログアウトする$/) do
   visit '/users/sign_out'
 end
 
-When /^I sign up with valid user data$/ do
+もし(/^正しいユーザー情報で登録した$/) do
   create_visitor
   sign_up
 end
 
-When /^I sign up with an invalid email$/ do
+もし(/^間違ったメールアドレスで登録した$/) do
   create_visitor
   @visitor = @visitor.merge(:email => "notanemail")
   sign_up
 end
 
-When /^I sign up without a password confirmation$/ do
+もし(/^パスワード\(再入力\)未入力で登録した$/) do
   create_visitor
   @visitor = @visitor.merge(:password_confirmation => "")
   sign_up
 end
 
-When /^I sign up without a password$/ do
+もし(/^パスワード未入力で登録した$/) do
   create_visitor
   @visitor = @visitor.merge(:password => "")
   sign_up
 end
 
-When /^I sign up with a mismatched password confirmation$/ do
+もし(/^パスワードとパスワード\(再入力\)の内容が違う$/) do
   create_visitor
   @visitor = @visitor.merge(:password_confirmation => "changeme123")
   sign_up
 end
 
-When /^I return to the site$/ do
+もし(/^トップページに戻った$/) do
   visit '/'
 end
 
-When /^I sign in with a wrong email$/ do
+もし(/^間違ったメールアドレスでログイン$/) do
   @visitor = @visitor.merge(:email => "wrong@example.com")
   sign_in
 end
 
-When /^I sign in with a wrong password$/ do
+もし(/^間違ったパスワードでログイン$/) do
   @visitor = @visitor.merge(:password => "wrongpass")
   sign_in
 end
 
-When /^I edit my account details$/ do
-  click_link "Edit account"
+もし(/^登録情報を編集した$/) do
+  click_link "登録情報編集"
   fill_in "user_name", :with => "newname"
   fill_in "user_current_password", :with => @visitor[:password]
-  click_button "Update"
+  click_button "更新"
 end
 
-When /^I look at the list of users$/ do
+もし(/^ユーザー一覧を表示する$/) do
   visit '/'
 end
 
 ### THEN ###
-Then /^I should be signed in$/ do
-  page.should have_content "Logout"
-  page.should_not have_content "Sign up"
-  page.should_not have_content "Login"
+ならば(/^ログインできる$/) do
+  page.should have_content "ログアウト"
+  page.should have_content "登録情報編集"  
+  page.should_not have_content "ログイン"
 end
 
-Then /^I should be signed out$/ do
-  page.should have_content "Sign up"
-  page.should have_content "Login"
-  page.should_not have_content "Logout"
+かつ(/^ログインできない$/) do
+  page.should have_content "ログイン"
+  page.should have_content "登録"
+  page.should_not have_content "ログアウト"
 end
 
-Then /^I see an unconfirmed account message$/ do
-  page.should have_content "You have to confirm your account before continuing."
+ならば(/^ログインメッセージが表示される$/) do
+  page.should have_content "ログインしました。"
 end
 
-Then /^I see a successful sign in message$/ do
-  page.should have_content "Signed in successfully."
+ならば(/^登録完了メッセージが表示される$/) do
+  page.should have_content "ようこそ！ アカウント登録を受け付けました。"
 end
 
-Then /^I should see a successful sign up message$/ do
-  page.should have_content "Welcome! You have signed up successfully."
+ならば(/^メールアドレス間違いのエラーメッセージが表示される$/) do
+  page.should have_content "メールアドレスは不正な値です。"
 end
 
-Then /^I should see an invalid email message$/ do
-  page.should have_content "Email is invalid"
+ならば(/^パスワード未入力のエラーメッセージが表示される$/) do
+  page.should have_content "パスワードを入力してください。パスワードと確認の入力が一致しません。"
 end
 
-Then /^I should see a missing password message$/ do
-  page.should have_content "Password can't be blank"
+ならば(/^パスワード\(再入力\)未入力のエラーメッセージが表示される$/) do
+  page.should have_content "パスワードと確認の入力が一致しません。"
 end
 
-Then /^I should see a missing password confirmation message$/ do
-  page.should have_content "Password doesn't match confirmation"
+ならば(/^パスワード不一致のエラーメッセージが表示される$/) do
+  page.should have_content "パスワードと確認の入力が一致しません。"
 end
 
-Then /^I should see a mismatched password message$/ do
-  page.should have_content "Password doesn't match confirmation"
+ならば(/^ログアウトメッセージが表示される$/) do
+  page.should have_content "ログアウトしました。"
 end
 
-Then /^I should see a signed out message$/ do
-  page.should have_content "Signed out successfully."
+ならば(/^エラーメッセージが表示される$/) do
+  page.should have_content "メールアドレスかパスワードが違います。"
 end
 
-Then /^I see an invalid login message$/ do
-  page.should have_content "Invalid email or password."
+ならば(/^登録情報編集完了メッセージが表示される$/) do
+  page.should have_content "アカウント情報を変更しました。"
 end
 
-Then /^I should see an account edited message$/ do
-  page.should have_content "You updated your account successfully."
-end
-
-Then /^I should see my name$/ do
+ならば(/^自分の名前を確認できる$/) do
   create_user
   page.should have_content @user[:name]
 end

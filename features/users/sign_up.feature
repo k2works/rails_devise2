@@ -1,27 +1,29 @@
-Feature: Sign up
-  In order to get access to protected sections of the site
-  As a user
-  I want to be able to sign up
+# language:ja
 
-    Background:
-      Given I am not logged in
+機能: 登録
+  保護されたサイト内にアクセスするため
+  ユーザーは
+  登録することができる
 
-    Scenario: User signs up with valid data
-      When I sign up with valid user data
-      Then I should see a successful sign up message
-      
-    Scenario: User signs up with invalid email
-      When I sign up with an invalid email
-      Then I should see an invalid email message
+    背景:
+      ユーザーはログインしていない
 
-    Scenario: User signs up without password
-      When I sign up without a password
-      Then I should see a missing password message
+    シナリオ: 正しいユーザー情報で登録する
+      もし 正しいユーザー情報で登録した
+      ならば 登録完了メッセージが表示される
 
-    Scenario: User signs up without password confirmation
-      When I sign up without a password confirmation
-      Then I should see a missing password confirmation message
+    シナリオ: 間違ったメールアドレスで登録する
+      もし 間違ったメールアドレスで登録した
+      ならば メールアドレス間違いのエラーメッセージが表示される
 
-    Scenario: User signs up with mismatched password and confirmation
-      When I sign up with a mismatched password confirmation
-      Then I should see a mismatched password message
+    シナリオ: パスワード未入力で登録する
+      もし パスワード未入力で登録した
+      ならば パスワード未入力のエラーメッセージが表示される
+
+    シナリオ: パスワード(再入力)未入力で登録する
+      もし パスワード(再入力)未入力で登録した
+      ならば パスワード(再入力)未入力のエラーメッセージが表示される
+
+    シナリオ: パスワードとパスワード(再入力)の内容が違う
+      もし パスワードとパスワード(再入力)の内容が違う
+      ならば パスワード不一致のエラーメッセージが表示される

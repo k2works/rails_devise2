@@ -1,9 +1,11 @@
-Feature: Show Users
-  As a visitor to the website
-  I want to see registered users listed on the homepage
-  so I can know if the site has users
+#language:ja
 
-    Scenario: Viewing users
-      Given I exist as a user
-      When I look at the list of users
-      Then I should see my name
+機能: ユーザー表示
+  訪問者としてサイトを見たとき
+  ホームページ上で登録ユーザーを見たい
+  サイトにユーザーが登録されているか知ることができるから
+
+    シナリオ: ユーザーを表示
+      前提 存在するユーザー
+      もし ユーザー一覧を表示する
+      ならば 自分の名前を確認できる
