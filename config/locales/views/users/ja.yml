@@ -1,4 +1,21 @@
 ja:
   users:
+    form:
+      title:    "ユーザ情報の入力"
+      error:    "件のエラーがあります"
+    index:
+      title:    "ユーザー"
+      Show:     "表示"
+      Edit:     "編集"
+      Destroy:  "削除"
+      OK?:      "本当によろしいですか？"
+      New_User: "新規ユーザー"
+    edit:
+      title:    "編集"
+      Show:     "表示"
+      Back:     "戻る"
+    new:
+      title:    "新規ユーザー"
+      Back:     "戻る"
     show:
       title: "ユーザー"

@@ -429,9 +429,56 @@ Railsアプリでユーザー認証機能を組み込む。
 
  `$ vi config/locales/views/devise/shared/ja.yml`
 
- `$ vi config/application.rb`
+`$ vi config/application.rb`
 
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+#### ユーザー管理機能の追加
+1. ユーザー管理機能を追加
+
+`$ vi app/controllers/users_controller.rb`
+
+`$ vi app/views/users/index.html.erb`
+
+`$ vi app/views/users/show.html.erb`
+
+`$ vi app/views/users/_form.html.erb`
+
+`$ vi app/views/users/new.html.erb`
+
+`$ vi app/views/users/edit.html.erb`
+
+`$ vi config/locales/views/users/ja.yml`
+
+2. サインアップできないように設定する
+
+ :registerableをコメントアウトする
+
+`$ vi app/models/user.rb`
+
+ 以下を削除する
+ 
+ `$ vi app/views/layouts/_navigation.html.erb`
+
+     <% if user_signed_in? %>
+       <li>
+         <%= link_to t('.Edit_account'), edit_user_registration_path %>
+       </li>
+     <% else %>
+      <li>
+        <%= link_to t('.Sign_up'), new_user_registration_path %>
+      </li>
+      <% end %>
+
+ 表示項目がなくなるので修正する。
+ `$ vi features/step_definitions/user_steps.rb`
+
+テストの修正
+
+`$ vi features/users/sign_up.feature`
+
+`$ vi features/step_definitions/user_steps.rb`
+
 
 ### 参照
 [RailsApps Tutorials](http://railsapps.github.io/tutorial-rails-devise-rspec-cucumber.html)
@@ -441,3 +488,5 @@ Railsアプリでユーザー認証機能を組み込む。
 [i18n_generators を使ったロケールファイルの生成](http://qiita.com/items/e33bd512550aa2219da8)
 
 [RailsのI18n APIの使い方の基本と辞書ファイルの整理方針: Modelごと、Viewごとに分けて管理する](http://memo.yomukaku.net/entries/LXvSUpT)
+
+[Rails3.2のアプリにユーザー機能を追加する～Devise](http://blog.scimpr.com/2012/11/17/rails3-2%E3%81%AE%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AB%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E6%A9%9F%E8%83%BD%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%EF%BD%9Edevise/)
