@@ -1,7 +1,7 @@
 <%= link_to t('.title'), root_path, :class => 'brand' %>
 <ul class="nav">
   <% if user_signed_in? %>
-    <li>
+    <li>    
       <%= link_to t('.Logout'), destroy_user_session_path, :method=>'delete' %>
     </li>
   <% else %>
@@ -9,6 +9,13 @@
       <%= link_to t('.Login'), new_user_session_path %>
     </li>
   <% end %>
+
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to t('.User'), users_index_path %>
+    </li>
+  <% end %>
+  
   <% if user_signed_in? %>
     <li>
       <%= link_to t('.Edit_account'), edit_user_registration_path %>

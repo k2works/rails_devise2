@@ -46,6 +46,20 @@ def sign_in
   click_button "ログイン"
 end
 
+def user_edit
+  visit '/users/new'
+
+  delete_user
+
+  fill_in "user_name", :with => @visitor[:name]
+  fill_in "user_email", :with => @visitor[:email]
+  fill_in "user_password", :with => @visitor[:password]
+  fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
+
+  click_button "登録する"
+  find_user
+end
+
 ### GIVEN ###
 前提(/^ログインしていない$/) do
   visit '/users/sign_out'
@@ -77,31 +91,31 @@ end
 
 もし(/^正しいユーザー情報で登録した$/) do
   create_visitor
-  sign_up
+  user_edit
 end
 
 もし(/^間違ったメールアドレスで登録した$/) do
   create_visitor
   @visitor = @visitor.merge(:email => "notanemail")
-  sign_up
+  user_edit  
 end
 
 もし(/^パスワード\(再入力\)未入力で登録した$/) do
   create_visitor
   @visitor = @visitor.merge(:password_confirmation => "")
-  sign_up
+  user_edit  
 end
 
 もし(/^パスワード未入力で登録した$/) do
   create_visitor
   @visitor = @visitor.merge(:password => "")
-  sign_up
+  user_edit    
 end
 
 もし(/^パスワードとパスワード\(再入力\)の内容が違う$/) do
   create_visitor
   @visitor = @visitor.merge(:password_confirmation => "changeme123")
-  sign_up
+  user_edit      
 end
 
 もし(/^トップページに戻った$/) do
