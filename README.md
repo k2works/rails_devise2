@@ -433,8 +433,8 @@ Railsアプリでユーザー認証機能を組み込む。
 
 config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
-#### ユーザー管理機能の追加
-1. ユーザー管理機能画面を追加
+#### ユーザ管理機能の追加
+1. ユーザ管理機能画面を追加
 
 `$ vi app/controllers/users_controller.rb`
 
@@ -472,13 +472,17 @@ config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,y
       </li>
       <% end %>
 
-テストの修正
+ テストの修正
 
-$ vi features/users/user_new.feature`
+ `$ rm features/users/sign_up.feature`
 
-`$ vi features/users/sign_up.feature`
+ `$ rm features/users/sign_in.feature`
 
-`$ vi features/step_definitions/user_steps.rb`
+ `$ vi features/users/user_new.feature`
+
+ `$ vi features/users/user_show.feature`
+
+ `$ vi features/step_definitions/user_steps.rb`
 
 
 ### 参照

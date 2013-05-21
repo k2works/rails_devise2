@@ -36,6 +36,7 @@ gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
+gem 'debugger'
 
 #自動テスト関連
 group :test, :development do

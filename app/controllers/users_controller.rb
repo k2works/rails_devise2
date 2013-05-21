@@ -22,7 +22,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
-      redirect_to @user, notice: 'ユーザ#{@user.name}を作成しました。'
+      msg = t "create", name: @user.name
+      redirect_to @user, notice: msg
     else
       render action: "new"
     end
@@ -32,7 +33,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
-      redirect_to @user, notice: 'ユーザ#{@user.name}を更新しました。'
+      msg = t "update", name: @user.name      
+      redirect_to @user, notice: msg
     else
       render action: "edit"
     end
@@ -42,7 +44,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     begin
       @user.destroy
-      flash[:notice] = "ユーザ#{@user.name}を削除しました。"
+      msg = t "destroy", name: @user.name      
+      flash[:notice] = msg
     rescue Exception => e
       flash[:notice] = e.message
     end

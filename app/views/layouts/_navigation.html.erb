@@ -15,14 +15,3 @@
       <%= link_to t('.User'), users_index_path %>
     </li>
   <% end %>
-  
-  <% if user_signed_in? %>
-    <li>
-      <%= link_to t('.Edit_account'), edit_user_registration_path %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to t('.Sign_up'), new_user_registration_path %>
-    </li>
-  <% end %>
-  </ul>
